@@ -41,13 +41,6 @@ public class MapExamples{
         return count;
     }
 
-
-
-
-
-
-    
-
     public static Map<String, Integer> wordCount(String filename){
         try{
           BufferedReader in = new BufferedReader(new FileReader(filename));
@@ -57,7 +50,7 @@ public class MapExamples{
           String line;
 
           while( (line = in.readLine()) != null ){
-            String[] words = line.split("\\w+");
+            String[] words = line.split("\\s+");
             for( String word: words ){
                 if( !counts.containsKey(word) ){
                     counts.put(word, 0);
@@ -84,9 +77,9 @@ public class MapExamples{
           String line;
 
           while( (line = in.readLine()) != null ){
-            String[] words = line.split("\\w+");
+            String[] words = line.split("\\s+");
             for( String word: words ){
-                counts.put(word, counts.getOrDefault(word, 0));
+                counts.put(word, counts.getOrDefault(word, 0) + 1);
             }
           }
           
